@@ -1,20 +1,23 @@
-import {Stack} from 'expo-router'
+import {Stack} from 'expo-router';
+import { CartProvider } from '../contexts/CartContext';
 
 export default function RootLayout() {
   return (
-    <Stack>
+    <CartProvider>
+      <Stack>
+        <Stack.Screen
+        name="(tabs)"
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
-      name="(tabs)"
+      name="detalhe"
       options={{
-        headerShown: false,
+        title: 'Detalhes do item',
       }}
-    />
-    <Stack.Screen
-    name="detalhe"
-    options={{
-      title: 'Detalhes do item',
-    }}
-    />
-    </Stack>
-  )
+      />
+      </Stack>
+    </CartProvider>
+    );
 }
